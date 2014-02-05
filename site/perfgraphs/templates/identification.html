@@ -1,0 +1,7 @@
+<h1>Identification</h1>
+
+<p style="color:red">{{ message }}</p>
+<form action="/gpc/" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envoyer" />
+</form>

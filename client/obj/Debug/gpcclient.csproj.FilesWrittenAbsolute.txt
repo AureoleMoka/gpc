@@ -1,0 +1,9 @@
+/home/moka/projects/gpc/client/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/moka/projects/gpc/client/obj/Debug/gpcclient.Properties.Resources.resources
+/home/moka/projects/gpc/client/obj/Debug/gpcclient.Formulaire.resources
+/home/moka/projects/gpc/client/bin/Debug/gpcclient.exe.mdb
+/home/moka/projects/gpc/client/bin/Debug/gpcclient.exe
+/home/moka/projects/gpc/client/obj/Debug/gpcclient.exe
+/home/moka/projects/gpc/client/obj/Debug/gpcclient.exe.mdb
+/home/moka/projects/gpc/client/bin/Debug/Npgsql.dll
+/home/moka/projects/gpc/client/bin/Debug/Mono.Security.dll

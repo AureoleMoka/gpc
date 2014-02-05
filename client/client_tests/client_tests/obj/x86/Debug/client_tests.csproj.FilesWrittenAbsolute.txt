@@ -1,0 +1,8 @@
+/home/moka/projects/gpc/client/client_tests/client_tests/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/moka/projects/gpc/client/client_tests/client_tests/bin/Debug/Npgsql.dll
+/home/moka/projects/gpc/client/client_tests/client_tests/bin/Debug/client_tests.exe.mdb
+/home/moka/projects/gpc/client/client_tests/client_tests/bin/Debug/client_tests.exe
+/home/moka/projects/gpc/client/client_tests/client_tests/obj/x86/Debug/client_tests.exe
+/home/moka/projects/gpc/client/client_tests/client_tests/obj/x86/Debug/client_tests.exe.mdb
+/home/moka/projects/gpc/client/client_tests/client_tests/bin/Debug/Npgsql.resources.dll
+/home/moka/projects/gpc/client/client_tests/client_tests/bin/Debug/Mono.Security.dll

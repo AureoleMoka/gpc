@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Pr\IeC {\'e}sentation}{1}{0}{1}
+\beamer@endinputifotherversion {3.27pt}
+\select@language {french}
+\beamer@sectionintoc {2}{Analyse UML}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{Use cases}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Class}{4}{0}{2}
+\beamer@subsectionintoc {2}{3}{Sequence}{5}{0}{2}

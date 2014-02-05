@@ -1,0 +1,11 @@
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\bin\Debug\gpcclient.exe.config
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\bin\Debug\gpcclient.exe
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\bin\Debug\gpcclient.pdb
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\bin\Debug\Mono.Security.dll
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\bin\Debug\Npgsql.dll
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.IdForm.resources
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.Properties.Resources.resources
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.csproj.GenerateResource.Cache
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.exe
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.pdb
+C:\Users\q.leguennec\Desktop\gpc\lecteur_code_barre\lecteur_codebarre\lecteur_codebarre\obj\Debug\gpcclient.csprojResolveAssemblyReference.cache

@@ -1,0 +1,39 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Formulaire.cs">
+    <Files>
+      <File FileName="Formulaire.cs" Line="38" Column="4" />
+      <File FileName="Program.cs" Line="5" Column="14" />
+      <File FileName="Adherent.cs" Line="1" Column="1" />
+      <File FileName="Formulaire.Designer.cs" Line="38" Column="15" />
+      <File FileName="dbdial.cs" Line="81" Column="54" />
+      <File FileName="App.config" Line="6" Column="17" />
+      <File FileName="Properties/AssemblyInfo.cs" Line="14" Column="25" />
+      <File FileName="Formulaire.resx" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="gpcclient" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Properties" expanded="True">
+              <Node name="Resources.resx" expanded="True" />
+              <Node name="Settings.settings" expanded="True" />
+            </Node>
+            <Node name="Formulaire.cs" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
