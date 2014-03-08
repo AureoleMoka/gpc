@@ -1,0 +1,62 @@
+\begin{tikzpicture}[scale=1]
+{\scalefont{0.5}
+\begin{umlpackage}[x=-1]{Gestion de performances de courreurs}
+
+\begin{umlpackage}[x=0,y=3]{Gestion des courreurs}
+
+\umlclass[x=-2.7,y=0.8,type=class]{:Adhérent}{
+-adresse: string \\
+-barcode: string \\
+-code\_carte: string \\
+}{
+}
+
+\umlclass[x=-0.5, y=-0.7]{:Participant}{
+-nom: string \\
+-prenom: string \\
+-id\_dossard: string}{
+}
+
+\umlclass[x=-1,y=3,type=class]{:dbDial}{
++dbcon: NpgsqlConnection
+}{
++chercher\_Adherent(barcode): int \\
++update\_Adherent(adresse, nom, prenom, barcode) \\
++enregistrer\_nouveau(adresse, nom, prenom, barcode):int
+}
+
+\umlinherit[geometry=|-]{:Participant}{:Adhérent}
+
+%\umluniaggreg[mult2=1]{:IHM}{:dbDial}
+%\umluniaggreg[mult2=1]{:IHM}{:Lecteur\_codebarre}
+\umluniaggreg[mult2=*]{:dbDial}{:Adhérent}
+\umluniaggreg[mult2=*]{:dbDial}{:Participant}
+
+\umlclass[x=3.8, y=-1]{:Course}{
+-date: date \\
+-distance: int \\
+-nombre\_Tours: int \\
+-filepath: string \\
+-ids: Dictionaire \\
+}{
+-chercher\_participant(): Participant \\
+-remplir(Participant): void \\
+-save\_participant(Participant): Participant \\
+}
+
+\umlclass[x=3.8, y=2]{:Detecteur}{
+-SP: SerialPort \\
+-trame\_init: string
+}{
++ init(): void \\
++ send\_hexphrase(): void
+}
+
+\umluniaggreg[mult1=1, mult2=3]{:Course}{:Detecteur}
+\umluniaggreg[]{:dbDial}{:Course}
+\umluniaggreg[]{:Course}{:Participant}
+\end{umlpackage}
+\end{umlpackage}
+}
+
+\end{tikzpicture}

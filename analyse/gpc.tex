@@ -1,6 +1,7 @@
 \documentclass[10pt,handout,usepdftitle=false,envcountsect]{beamer}
 
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
 \usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
@@ -10,12 +11,15 @@
 \usepackage{calc}
 \usepackage{verbatim}
 \usepackage{pgf-pie}
-\usetheme{Hannover}
+\usetheme{Singapore}
+\usecolortheme{orchid}
+\useinnertheme{rectangles}
+\useoutertheme{smoothbars}
 
 
 % Title Page
-\title{Gestion de performances de coureurs}
-\author{Quentin Le Guennec}
+\title{Gestion de performances de courreurs}
+\author{Quentin Le Guennec \newline http://github.com/AureoleMoka/gpc.git}
 \institute{Lycée Pierre Méchain Laon}
 \date{\today}
 
@@ -23,74 +27,110 @@
 \section{Présentation}
 
 \begin{frame}
-    \includegraphics[scale=0.7]{pierre-mechain.png}
-    \maketitle
+\centering\includegraphics[scale=1]{pierre-mechain.png}
+\maketitle
 \end{frame}
 
+\AtBeginSection[] {
+    \begin{frame}{Sommaire}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
 \subsection{Sommaire}
 \frametitle{Sommaire}
 \begin{frame}
-    \tableofcontents
+\tableofcontents
 \end{frame}
 
 \subsection{Introduction}
 \begin{frame}
-\frametitle{Naming utilisé}
-\begin{description}
-    \item[dbDial] Classe qui gère les dialogues avec la base de données
-        \newline
-    \item[CodeReader] Lecteur de code barre pour idenfier un adhérent grâce à sa carte.
-        \newline
-    \item[RFIDReader] Lecteur de badges par RFID pour attribuer à un coureur un ID
-        \newline
-    \item[Portique] Lecteur de badges par RFID qui permet de notifier le passage d'un coureur
-        \newline
-    \item[Michel] Désigne un participant, Adhérent ou non
-\end{description}
+\frametitle{Objectif du système}
+\begin{block}{Objectifs}
+\begin{itemize}
+\item Gérer le déroulement d'une course automatiquement
+\item Enregistrer les performances des courreurs
+\item Présenter sur un support de son choix les performances d'un courreur
+\end{itemize}
+\end{block}
 \end{frame}
 
+\begin{frame}
+\frametitle{Naming utilisé}
+\begin{block}{Naming}
+\begin{description}
+\item[dbDial] Classe qui gère les dialogues avec la base de données
+    \newline
+\item[CodeReader] Lecteur de code barre pour idenfier un adhérent grâce à sa carte.
+    \newline
+\item[RFIDReader] Lecteur de badges par RFID pour attribuer à un courreur un ID
+    \newline
+\item[Portique] Lecteur de badges par RFID qui permet de notifier le passage d'un courreur
+    \newline
+\item[Michel] Désigne un participant, Adhérent ou non
+\end{description}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Prérequis}
+
+\begin{block}{Software nécessaire}
+
+\begin{description}
+\item[Un browser] \hfill \\Pour afficher les performances
+\item[Un serveur de base de données] \hfill \\Pour stocker les informations des adhérents
+\item[Le client] \hfill \\Actuellement développé en C\#
+\end{description}
+\end{block}
+
+\begin{block}{Hardware nécessaire}
+
+\begin{description}
+\item[Deux lecteur RFID] \hfill \\Un pour attribuer un badge à un participant et un portique RFID
+\item[Un lecteur de code barre] \hfill \\Pour identifier les adhérents grâce à leur carte
+\end{description}
+\end{block}
+
+\end{frame}
 
 \subsection{Travail effectué}
 \begin{frame}
 
 \frametitle{Participants au projet}
-    \begin{description}
-        \item[Quentin Le Guennec] site web et de la base de données, aide générale
-            \item[Classes]{CodeReader}
-            \newline
-        \item[Bastien Kopka] design du site web, analyse des documentations
-            \item[Classes]{Portique, RFIDReader}
-            \newline
-        \item[Léo David] analyse des documentations
-            \item[Classes]{Portique, RFIDReader}
-            \newline
-    \end{description}
+    \begin{block}{Quentin Le Guennnec}
+        site web et de la base de données, aide générale
+        \newline\emph{Classes} CodeReader, dbDial
+    \end{block}
+    \begin{block}{Bastien Kopka} 
+        design du site web, analyse des documentations
+        \newline\emph{Classes} Portique, RFIDReader
+    \end{block}
+    \begin{block}{Léo David} 
+        analyse des documentations
+        \newline\emph{Classes} Portique, RFIDReader
+        \newline
+    \end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{Répartition du temps}
-    \begin{tikzpicture}[scale=0.5]
-            \pie{12/Analyse des documentations, 15/Développement, 16/Analyse UML, 30/BDD et Serveur web, 27/Analyse du matériel}
-    \end{tikzpicture}
-\emph{Au total:} Environ 70 heures
+\begin{alertblock}{Temps}
+\begin{tikzpicture}[scale=0.6]
+        \pie{12/Analyse des documentations, 15/Développement, 16/Analyse UML, 30/BDD et Serveur web, 27/Analyse du matériel}
+\end{tikzpicture}
+\end{alertblock}
+\centering\begin{exampleblock}{Au total:} 
+Environ 70 heures
+\end{exampleblock}
 \end{frame}
 
-\subsection{Objectif du système}
-\begin{frame}
-\frametitle{Objectif du système}
-\begin{itemize}
-    \item Gérer le déroulement d'une course automatiquement
-    \item Enregistrer les performances des coureurs
-    \item Présenter sur un support de son choix les performances d'un coureur
-\end{itemize}
-\end{frame}
+
 \section{Analyse UML}
-
 % Config de tikz
 \tikzumlset{font=\tiny}
 
 \subsection{Use cases}
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Diagramme de cas d'utilisation}
 \begin{tikzpicture}
 % Acteurs extérieurs
@@ -99,7 +139,7 @@
 \umlactor[x=-2,y=2,below=0.3cm]{Participant}
 \umlinherit{Consultant}{Participant}
 \umlinherit{Participant}{Adhérent}
-\begin{umlsystem}[x=1.5]{Gestion de performances de coureurs}
+\begin{umlsystem}[x=1.5]{Gestion de performances de courreurs}
 
 % Acteurs intérieurs
 \umlactor[x=5.7,y=1.5,below=0.3cm]{Base de données}
@@ -107,7 +147,7 @@
 % Cas d'utilisations
 \umlusecase[name=case1]{consulter performances}
 \umlusecase[y=2,name=case3]{participer à une course}
-\umlusecase[x=4,y=3.5,name=case4]{enregistrer coureur}
+\umlusecase[x=4,y=3.5,name=case4]{enregistrer courreur}
 \umlusecase[y=4,name=case5]{enregistrer performances}
 
 % Associations
@@ -127,13 +167,13 @@
 
 
 \subsection{Class}
-\begin{frame}
-\frametitle{Diagramme de classes}
-\begin{tikzpicture}
-{\scalefont{0.7}
-\begin{umlpackage}[x=-1]{Gestion de performances de coureurs}
+\frametitle{Diagramme de Classes}
+\begin{frame}[fragile]
+\begin{tikzpicture}[scale=1]
+{\scalefont{0.5}
+\begin{umlpackage}[x=-1]{Gestion de performances de courreurs}
 
-\begin{umlpackage}[x=0,y=3]{Gestion des coureurs}
+\begin{umlpackage}[x=0,y=3]{Gestion des courreurs}
 
 \umlclass[x=-2.7,y=0.8,type=class]{:Adhérent}{
 -adresse: string \\
@@ -151,9 +191,9 @@
 \umlclass[x=-1,y=3,type=class]{:dbDial}{
 +dbcon: NpgsqlConnection
 }{
-    +chercher\_Adherent(barcode): int \\
-    +update\_Adherent(adresse, nom, prenom, barcode) \\
-    +enregistrer\_nouveau(adresse, nom, prenom, barcode):int
++chercher\_Adherent(barcode): int \\
++update\_Adherent(adresse, nom, prenom, barcode) \\
++enregistrer\_nouveau(adresse, nom, prenom, barcode):int
 }
 
 \umlinherit[geometry=|-]{:Participant}{:Adhérent}
@@ -170,17 +210,17 @@
 -filepath: string \\
 -ids: Dictionaire \\
 }{
-    -chercher\_participant(): Participant \\
-    -remplir(Participant): void \\
-    -save\_participant(Participant): Participant \\
+-chercher\_participant(): Participant \\
+-remplir(Participant): void \\
+-save\_participant(Participant): Participant \\
 }
 
 \umlclass[x=3.8, y=2]{:Detecteur}{
-    -SP: SerialPort \\
-    -trame\_init: string
+-SP: SerialPort \\
+-trame\_init: string
 }{
-    + init(): void \\
-    + send\_hexphrase(): void
++ init(): void \\
++ send\_hexphrase(): void
 }
 
 \umluniaggreg[mult1=1, mult2=3]{:Course}{:Detecteur}
@@ -196,20 +236,86 @@
 \subsection{Sequence}
 \begin{frame}
 \frametitle{Diagramme de séquence}
-\begin{tikzpicture}
+\begin{exampleblock}{Michel est un adhérent}
+\begin{tikzpicture}[scale=0.8]
 \begin{umlseqdiag}
 
 \umlactor[class=Adherent]{Michel}
-\umlobject[class=codeReader]{CR}
+\umlobject[class=CodeReader]{CR}
 \umlobject[class=dbDial]{db}
+\umlobject[class=Course]{C}
 
 \begin{umlcall}[type=synchron,op=Data\_Received(barcode)]{Michel}{CR}
-    \begin{umlcall}[type=synchron,op=chercher\_Adherent(barcode)]{CR}{db}
+\begin{umlcall}[type=synchron,op=chercher\_Adherent(barcode)]{CR}{db}
+    \begin{umlcall}[type=synchron, op=remplir(Adherent)]{db}{C}
     \end{umlcall}
+\end{umlcall}
+\end{umlcall}
+
+\begin{umlcall}[type=synchron, op=participer()]{Michel}{C}
 \end{umlcall}
 
 \end{umlseqdiag}
 \end{tikzpicture}
+\end{exampleblock}
 \end{frame}
+
+%\section{Code source}
+%\subsection{Classe dbDial}
+%\begin{frame}[fragile]
+%\frametitle{Connection à une DB postgresql en Cs}
+%\lstinputlisting[breaklines=true]{source=dbDial.cs}
+%\end{frame}
+
+\section{Conclusion}
+\subsection{Fonctionnalités présentes}
+\begin{frame}
+\frametitle{Fonctionnalités présentes}
+\begin{block}{Fonctionnalités}
+    \begin{itemize}
+        \item Identification des adhérents sur le serveur
+        \item Détection des puces RFID
+        \item Détection des codes barre
+        \item Consultation des performances
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\subsection{Difficultés rencontrés}
+\frametitle{Difficultés rencontrés}
+\begin{block}{Difficultés}
+    \begin{itemize}
+            \item Documentation peu claire
+            \item Pour une raison inconnue, le lecteur de badges répondait très lentement
+            \item L'ordinateur ARM sur lequel était installé le serveur calculait lentement
+            \item Le portique semblait déféctueux
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\subsection{Avantages du système}
+\frametitle{Avantages du système}
+\begin{block}{Avantages}
+    \begin{itemize}
+        \item Le système est entièrement modulable
+        \item Facilités de déploiement
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\subsection{Améliorations possibles}
+\frametitle{Améliorations possibles}
+\begin{block}{Améliorations}
+    \begin{itemize}
+        \item Le serveur présente des failles
+        \item La fonctionnalité qui permet de notifier un passage n'est pas terminée
+    \end{itemize}
+\end{block}
+\end{frame}
+
+
 
 \end{document}          

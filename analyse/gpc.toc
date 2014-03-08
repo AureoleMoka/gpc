@@ -3,9 +3,13 @@
 \beamer@sectionintoc {1}{Pr\IeC {\'e}sentation}{1}{0}{1}
 \beamer@subsectionintoc {1}{1}{Sommaire}{2}{0}{1}
 \beamer@subsectionintoc {1}{2}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{3}{Travail effectu\IeC {\'e}}{4}{0}{1}
-\beamer@subsectionintoc {1}{4}{Objectif du syst\IeC {\`e}me}{6}{0}{1}
-\beamer@sectionintoc {2}{Analyse UML}{7}{0}{2}
-\beamer@subsectionintoc {2}{1}{Use cases}{7}{0}{2}
-\beamer@subsectionintoc {2}{2}{Class}{8}{0}{2}
-\beamer@subsectionintoc {2}{3}{Sequence}{9}{0}{2}
+\beamer@subsectionintoc {1}{3}{Travail effectu\IeC {\'e}}{6}{0}{1}
+\beamer@sectionintoc {2}{Analyse UML}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Use cases}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Class}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Sequence}{11}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Fonctionnalit\IeC {\'e}s pr\IeC {\'e}sentes}{13}{0}{3}
+\beamer@subsectionintoc {3}{2}{Difficult\IeC {\'e}s rencontr\IeC {\'e}s}{14}{0}{3}
+\beamer@subsectionintoc {3}{3}{Avantages du syst\IeC {\`e}me}{15}{0}{3}
+\beamer@subsectionintoc {3}{4}{Am\IeC {\'e}liorations possibles}{16}{0}{3}
