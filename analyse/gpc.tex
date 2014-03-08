@@ -1,4 +1,5 @@
 \documentclass[10pt,handout,usepdftitle=false,envcountsect]{beamer}
+
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
@@ -6,6 +7,9 @@
 \usepackage{tikzscale}
 \usepackage{tikz-uml}
 \usepackage{scalefnt}
+\usepackage{calc}
+\usepackage{verbatim}
+\usepackage{pgf-pie}
 \usetheme{Hannover}
 
 
@@ -15,16 +19,73 @@
 \institute{Lycée Pierre Méchain Laon}
 \date{\today}
 
-\section{Présentation}
 \begin{document}
-\maketitle
+\section{Présentation}
 
 \begin{frame}
-\frametitle{Sommaire}
-\tableofcontents
+    \includegraphics[scale=0.7]{pierre-mechain.png}
+    \maketitle
 \end{frame}
 
+\subsection{Sommaire}
+\frametitle{Sommaire}
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
+\subsection{Introduction}
+\begin{frame}
+\frametitle{Naming utilisé}
+\begin{description}
+    \item[dbDial] Classe qui gère les dialogues avec la base de données
+        \newline
+    \item[CodeReader] Lecteur de code barre pour idenfier un adhérent grâce à sa carte.
+        \newline
+    \item[RFIDReader] Lecteur de badges par RFID pour attribuer à un coureur un ID
+        \newline
+    \item[Portique] Lecteur de badges par RFID qui permet de notifier le passage d'un coureur
+        \newline
+    \item[Michel] Désigne un participant, Adhérent ou non
+\end{description}
+\end{frame}
+
+
+\subsection{Travail effectué}
+\begin{frame}
+
+\frametitle{Participants au projet}
+    \begin{description}
+        \item[Quentin Le Guennec] site web et de la base de données, aide générale
+            \item[Classes]{CodeReader}
+            \newline
+        \item[Bastien Kopka] design du site web, analyse des documentations
+            \item[Classes]{Portique, RFIDReader}
+            \newline
+        \item[Léo David] analyse des documentations
+            \item[Classes]{Portique, RFIDReader}
+            \newline
+    \end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Répartition du temps}
+    \begin{tikzpicture}[scale=0.5]
+            \pie{12/Analyse des documentations, 15/Développement, 16/Analyse UML, 30/BDD et Serveur web, 27/Analyse du matériel}
+    \end{tikzpicture}
+\emph{Au total:} Environ 70 heures
+\end{frame}
+
+\subsection{Objectif du système}
+\begin{frame}
+\frametitle{Objectif du système}
+\begin{itemize}
+    \item Gérer le déroulement d'une course automatiquement
+    \item Enregistrer les performances des coureurs
+    \item Présenter sur un support de son choix les performances d'un coureur
+\end{itemize}
+\end{frame}
 \section{Analyse UML}
+
 % Config de tikz
 \tikzumlset{font=\tiny}
 
@@ -76,11 +137,12 @@
 
 \umlclass[x=-2.7,y=0.8,type=class]{:Adhérent}{
 -adresse: string \\
+-barcode: string \\
 -code\_carte: string \\
 }{
 }
 
-\umlclass[x=0.2, y=-0.7]{:Participant}{
+\umlclass[x=-0.5, y=-0.7]{:Participant}{
 -nom: string \\
 -prenom: string \\
 -id\_dossard: string}{
@@ -101,12 +163,27 @@
 \umluniaggreg[mult2=*]{:dbDial}{:Adhérent}
 \umluniaggreg[mult2=*]{:dbDial}{:Participant}
 
-\umlclass[x=3.8, y=1]{:Course}{
-+date: date \\
-+distance: int \\
-+nombre\_Tours: int}{}
+\umlclass[x=3.8, y=-1]{:Course}{
+-date: date \\
+-distance: int \\
+-nombre\_Tours: int \\
+-filepath: string \\
+-ids: Dictionaire \\
+}{
+    -chercher\_participant(): Participant \\
+    -remplir(Participant): void \\
+    -save\_participant(Participant): Participant \\
+}
 
+\umlclass[x=3.8, y=2]{:Detecteur}{
+    -SP: SerialPort \\
+    -trame\_init: string
+}{
+    + init(): void \\
+    + send\_hexphrase(): void
+}
 
+\umluniaggreg[mult1=1, mult2=3]{:Course}{:Detecteur}
 \umluniaggreg[]{:dbDial}{:Course}
 \umluniaggreg[]{:Course}{:Participant}
 \end{umlpackage}
